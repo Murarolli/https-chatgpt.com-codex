@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import html
+import os
 import sqlite3
 from datetime import datetime
 from pathlib import Path
@@ -224,6 +225,7 @@ def app(environ, start_response):
 
 if __name__ == "__main__":
     init_db()
-    print("Servidor em http://localhost:5000")
-    with make_server("0.0.0.0", 5000, app) as httpd:
+    port = int(os.environ.get("PORT", "5000"))
+    print(f"Servidor em http://localhost:{port}")
+    with make_server("0.0.0.0", port, app) as httpd:
         httpd.serve_forever()

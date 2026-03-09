@@ -1,6 +1,6 @@
 # LUSOGUARDA - Sistema interno (MVP funcional)
 
-MVP web para gestão gerencial com base de dados local, pronto para correr no notebook interno.
+MVP web para gestão gerencial com base de dados local, pronto para correr no notebook interno **ou online**.
 
 ## Funcionalidades
 - Dashboard gerencial com indicadores rápidos
@@ -9,6 +9,37 @@ MVP web para gestão gerencial com base de dados local, pronto para correr no no
 - Base de dados local SQLite (`lusoguarda.db`)
 - Sem dependências externas (usa apenas Python padrão)
 
+---
+
+## Opção A (mais simples): usar ONLINE com conta gratuita (Render)
+Se você não quer mexer com CMD/terminal local, pode publicar online grátis.
+
+### Passo 1: criar conta grátis
+- Criar conta em: https://render.com (pode usar login Google/GitHub)
+
+### Passo 2: subir este projeto para o GitHub
+- Crie um repositório no GitHub
+- Envie estes arquivos (`app.py`, `README.md`, etc.)
+
+### Passo 3: criar o serviço na Render
+1. Clique em **New +** → **Web Service**
+2. Conecte o repositório do GitHub
+3. Configure:
+   - **Build Command:** vazio
+   - **Start Command:** `python3 app.py`
+4. Clique em **Create Web Service**
+
+A Render vai gerar um link do tipo:
+- `https://seu-app.onrender.com`
+
+Pronto: esse link abre no navegador sem precisar CMD no seu notebook.
+
+> Nota: plano gratuito pode "adormecer" se ficar sem uso e demorar alguns segundos para voltar.
+
+---
+
+## Opção B: rodar no próprio notebook (local)
+
 ## Importante (para quem é leigo)
 Se você abrir só o navegador, não vai funcionar enquanto o sistema não estiver ligado.
 
@@ -16,92 +47,44 @@ Pense assim:
 1. Primeiro você **liga o sistema** no terminal.
 2. Depois você abre o navegador no endereço local.
 
----
+### Qual terminal usar?
+- **Windows:** Prompt de Comando (CMD) ou PowerShell
+- **macOS:** app Terminal
+- **Linux:** Terminal
 
-## Qual terminal e qual programa usar?
-
-### Windows
-- **Programa 1 (terminal):** Prompt de Comando (CMD) ou PowerShell
-- **Programa 2 (navegador):** Chrome / Edge / Firefox
-
-### macOS
-- **Programa 1 (terminal):** Terminal
-- **Programa 2 (navegador):** Safari / Chrome / Firefox
-
-### Linux
-- **Programa 1 (terminal):** Terminal da distribuição
-- **Programa 2 (navegador):** Chrome / Firefox
-
----
-
-## Passo a passo (simples)
-
-### 1) Confirmar Python instalado
-No terminal, execute:
-
-```bash
-python3 --version
-```
-
-Se aparecer algo como `Python 3.x.x`, está OK.
-
-> No Windows, se `python3` não funcionar, teste `python --version`.
-
-### 2) Entrar na pasta do projeto
-No terminal, vá para a pasta onde estão os arquivos (`app.py`, `README.md`):
-
-```bash
-cd /caminho/da/pasta/do/projeto
-```
-
-### 3) Ligar o sistema
-Execute:
+### Passo a passo local
+1. Abrir terminal
+2. Entrar na pasta do projeto
+3. Executar:
 
 ```bash
 python3 app.py
 ```
 
-> No Windows, se necessário:
+No Windows, se necessário:
 
 ```bash
 python app.py
 ```
 
-Quando estiver correto, aparece algo como:
-
-```text
-Servidor em http://localhost:5000
-```
-
-### 4) Abrir no navegador
-Com o terminal ainda aberto, abra:
-
+4. Abrir no navegador:
 - `http://localhost:5000`
-
-Se quiser, teste também:
-- `http://127.0.0.1:5000`
+- se não abrir: `http://127.0.0.1:5000`
 
 ---
 
 ## Problemas comuns
 
-### "Não abre no navegador"
-- Verifique se o terminal está com o servidor rodando.
-- Se fechou o terminal, o sistema desliga.
-- Rode de novo `python3 app.py` e tente novamente.
+### "Não criou nada no meu notebook"
+Normal: o sistema só cria banco/tabelas quando você executa `python3 app.py`.
 
-### "Porta em uso"
-Se aparecer erro de porta 5000 ocupada, feche outros programas que usem essa porta e rode de novo.
+### "Não abre no navegador"
+- Confirme que o terminal está com o servidor ligado
+- Se fechar o terminal, o sistema desliga
 
 ### "Python não encontrado"
-Instale Python 3 e marque a opção de adicionar ao PATH (no Windows).
-
----
-
-## Como parar o sistema
-No terminal onde está rodando, pressione:
-
-- `Ctrl + C`
+- Instalar Python 3: https://www.python.org/downloads/
+- No Windows, marcar "Add Python to PATH"
 
 ---
 
